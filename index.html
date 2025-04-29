@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorcycle Rental - Ride with Freedom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                RideFree
+            </div>
+            <div class="nav-links">
+                <a href="#motorcycles">Motorcycles</a>
+                <a href="#booking">Book Now</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Rent Your Perfect Ride</h1>
+                <p>Explore the city with our premium motorcycle collection</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="cta-button">Book Now</a>
+                  
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Motorcycles</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Locations</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="motorcycles" class="motorcycles">
+            <div class="section-header">
+                <h2>Our Motorcycles</h2>
+                <p>Choose from our wide range of premium motorcycles</p>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search motorcycles...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-options">
+                    <select id="price-filter">
+                        <option value="">Price Range</option>
+                        <option value="0-1000">Under ₱1000</option>
+                        <option value="1000-1500">₱1000 - ₱1500</option>
+                        <option value="1500+">Over ₱1500</option>
+                    </select>
+                    <select id="type-filter">
+                        <option value="">Transmission</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Manual">Manual</option>
+                    </select>
+                </div>
+            </div>
+            <div class="motorcycle-grid">
+                <!-- Motorcycle cards will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="booking" class="booking">
+            <div class="section-header">
+                <h2>Book Your Ride</h2>
+                <p>Fill out the form below to reserve your motorcycle</p>
+            </div>
+            <form id="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="motorcycle">Select Motorcycle</label>
+                        <select id="motorcycle" required>
+                            <option value="">Choose a motorcycle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-date">Pickup Date</label>
+                        <input type="date" id="pickup-date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="duration">Duration (Days)</label>
+                        <input type="number" id="duration" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Pickup Location</label>
+                        <select id="location" required>
+                            <option value="">Select location</option>
+                            <option value="manila">Manila</option>
+                            <option value="cebu">Cebu</option>
+                            <option value="davao">Davao</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" placeholder="Any special requests or requirements?"></textarea>
+                </div>
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-check"></i>
+                    Proceed to Payment
+                </button>
+            </form>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any questions or concerns</p>
+            </div>
+            <div class="contact-methods">
+                <a href="https://wa.me/your-number" class="contact-button whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:+your-number" class="contact-button phone">
+                    <i class="fas fa-phone"></i>
+                    <span>Call Us</span>
+                </a>
+                <a href="mailto:info@ridefree.com" class="contact-button email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email Us</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About RideFree</h3>
+                <p>Your trusted partner in motorcycle rentals. We provide quality bikes and excellent service.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#motorcycles">Motorcycles</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Payment Methods</h3>
+                <div class="payment-icons">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fab fa-paypal"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 RideFree Motorcycle Rental. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
