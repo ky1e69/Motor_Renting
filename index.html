@@ -60,7 +60,7 @@
         <section id="motorcycles" class="motorcycles">
             <div class="section-header">
                 <h2>Our Motorcycles</h2>
-                <p>Choose from our wide range of premium motorcycles</p>
+                <p class="textCenter">Choose from our wide range of premium motorcycles</p>
             </div>
             <div class="search-container">
                 <div class="search-box">
@@ -89,7 +89,7 @@
         <section id="booking" class="booking">
             <div class="section-header">
                 <h2>Book Your Ride</h2>
-                <p>Fill out the form below to reserve your motorcycle</p>
+                <p>Fill out the form below to reserve your motorcycle. We'll get back to you within 24 hours.</p>
             </div>
             <form id="booking-form">
                 <div class="form-row">
@@ -98,30 +98,41 @@
                         <select id="motorcycle" required>
                             <option value="">Choose a motorcycle</option>
                         </select>
+                        <div class="form-hint">Select your preferred motorcycle from our collection</div>
                     </div>
                     <div class="form-group">
                         <label for="pickup-date">Pickup Date</label>
                         <input type="date" id="pickup-date" required>
+                        <div class="form-hint">Select your preferred pickup date</div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="duration">Duration (Days)</label>
-                        <input type="number" id="duration" min="1" required>
+                        <input type="number" id="duration" min="1" max="30" required>
+                        <div class="form-hint">Minimum 1 day, maximum 30 days</div>
                     </div>
                     <div class="form-group">
                         <label for="location">Pickup Location</label>
                         <select id="location" required>
                             <option value="">Select location</option>
-                            <option value="manila">Manila</option>
-                            <option value="cebu">Cebu</option>
-                            <option value="davao">Davao</option>
+                            <option value="manila">Manila - Main Branch</option>
+                            <option value="cebu">Cebu - Seaside Branch</option>
+                            <option value="davao">Davao - Mountain View Branch</option>
                         </select>
+                        <div class="form-hint">Choose your preferred pickup location</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="notes">Additional Notes</label>
-                    <textarea id="notes" placeholder="Any special requests or requirements?"></textarea>
+                    <textarea id="notes" placeholder="Any special requests or requirements? (Optional)"></textarea>
+                    <div class="form-hint">Let us know if you have any special requirements</div>
+                </div>
+                <div class="form-terms">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">terms and conditions</a> and <a href="#">rental policy</a></label>
+                    </div>
                 </div>
                 <button type="submit" class="submit-button">
                     <i class="fas fa-check"></i>

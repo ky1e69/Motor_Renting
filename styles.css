@@ -183,6 +183,10 @@ nav {
     font-size: 2.5rem;
     color: var(--secondary-color);
 }
+.textCenter{
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
 .motorcycle-grid {
     display: grid;
@@ -248,26 +252,78 @@ nav {
 .booking {
     background-color: white;
     padding: 8rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.booking::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 .booking h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-size: 2.5rem;
     color: var(--secondary-color);
+    position: relative;
+}
+
+.booking h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.booking p {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
 }
 
 #booking-form {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
-    background: var(--light-gray);
+    background: white;
     padding: 3rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#booking-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+    z-index: 1;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .form-group {
-    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .form-group label {
@@ -275,24 +331,38 @@ nav {
     margin-bottom: 0.8rem;
     font-weight: 600;
     color: var(--secondary-color);
+    font-size: 1rem;
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1.2rem;
     border: 2px solid #e2e8f0;
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
     background-color: white;
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
 }
 
 .submit-button {
@@ -309,7 +379,19 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+    z-index: 3;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.submit-button i {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 3;
 }
 
 .submit-button::before {
@@ -321,6 +403,7 @@ nav {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: 0.5s;
+    z-index: 2;
 }
 
 .submit-button:hover::before {
@@ -330,6 +413,35 @@ nav {
 .submit-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Form Validation Styles */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+    border-color: #f43f5e;
+}
+
+.form-group input:invalid:focus,
+.form-group select:invalid:focus,
+.form-group textarea:invalid:focus {
+    box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.1);
+}
+
+/* Responsive Form Adjustments */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    #booking-form {
+        padding: 2rem;
+    }
+
+    .submit-button {
+        padding: 1rem;
+    }
 }
 
 /* Contact Section */
@@ -370,6 +482,10 @@ nav {
 
 .phone {
     background-color: var(--primary-color);
+}
+
+.email {
+    background-color: #003087;
 }
 
 .contact-button:hover {
@@ -665,17 +781,6 @@ footer {
     }
 }
 
-/* Form Validation Styles */
-input:invalid,
-select:invalid {
-    border-color: var(--accent-color);
-}
-
-input:focus:invalid,
-select:focus:invalid {
-    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
-}
-
 /* Search and Filter Styles */
 .search-container {
     margin-bottom: 3rem;
@@ -845,4 +950,130 @@ select:focus:invalid {
     .filter-options select {
         width: 100%;
     }
+}
+
+/* Form Hints and Terms */
+.form-hint {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.form-terms {
+    margin: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 2;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+}
+
+.checkbox-wrapper label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    user-select: none;
+}
+
+.checkbox-wrapper a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+}
+
+.checkbox-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* Form Focus States */
+.form-group:focus-within label {
+    color: var(--primary-color);
+}
+
+/* Form Error States */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #f43f5e;
+}
+
+.form-group.error .form-hint {
+    color: #f43f5e;
+}
+
+/* Form Success States */
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+    border-color: #10b981;
+}
+
+.form-group.success .form-hint {
+    color: #10b981;
+}
+
+/* Form Loading State */
+.form-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.form-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+}
+
+/* Form Success Message */
+.form-success {
+    text-align: center;
+    padding: 2rem;
+    background: #10b981;
+    color: white;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.form-success i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-success h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-success p {
+    font-size: 1rem;
+    opacity: 0.9;
 }
